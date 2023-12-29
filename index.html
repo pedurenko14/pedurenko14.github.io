@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Empty</title>
-<style type="text/css">
-  html {
-    color-scheme: dark;
-  }
-  h1 {
-    margin: 0;
-    padding: 0;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gotham:wght@400;700&display=swap" rel="stylesheet">
+  <title>renkomc</title>
 </head>
 <body>
-<h1><center>Empty</center></h1>
-<hr>
-<center>The home page is temporarily unavailable.</center>
+  
+  
+<div class="container">
+    <h1>RenkoMC</h1>
+  <p style="padding: 0px;">Добро пожаловать на главную страницу RenkoMC.</p><p class="description">
+  Здесь вы найдете запланируемые публикуемые ивенты за неделю, вики и прочее.
+  </p>
+    <a href="https://renkomc.github.io/publish"  class="button">Публикуемые ивенты</a>
+    <a href="https://renkomc.github.io/wiki"  class="button">Вики</a>
+    <a href="https://renkomc.github.io/about"  class="button">О нас</a>
+</div>
+  
+<div class="fixed-top-right">
+  <select id="themeSelector" onchange="changeTheme()">
+    <option value="light">Темная</option>
+    <option value="dark">Светлая</option>
+  </select>
+</div>
+
+<div class="by">
+  <p>Copyright 2023 - 2024. by renko💜</p>
+</div>
+
+<script>
+    function changeTheme() {
+    const themeSelector = document.getElementById('themeSelector');
+    const selectedTheme = themeSelector.value;
+
+    document.body.className = selectedTheme === 'dark' ? 'dark-theme' : '';
+    const elementsToChangeTheme = document.querySelectorAll('.container, .fixed-top-left, select, #themeSelector, .by, .message-container');
+
+    elementsToChangeTheme.forEach(element => {
+      element.className = selectedTheme === 'dark' ? `${element.className} dark-theme` : element.className.replace(' dark-theme', '');
+    });
+
+    console.log(`Выбрана тема: ${selectedTheme}`);
+  }
+</script>
+
 </body>
 </html>
